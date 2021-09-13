@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 // Define a QuizSchema
 const QuizSchema = new Schema({
     name:String,
-    correctMarks:Number,
+    mark:Number,
     answer: [],
 
 

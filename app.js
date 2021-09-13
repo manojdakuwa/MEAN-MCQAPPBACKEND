@@ -29,7 +29,6 @@ mongoose
 //All Routes goes down.
 
 app.post('/api/register',express.json(), (req, res)=>{
-console.log(req)
     let newUser = new User();
     newUser.email = req.body.email,
     newUser.name = req.body.name
@@ -49,10 +48,9 @@ console.log(req)
 app.post('/api/createQuiz',express.json(), (req, res) => {
 
     let newQuiz = new Quiz();
-    newQuiz.title= req.body.question;
-    newQuiz.mark= req.body.mark;
-    newQuiz.name= req.body.name;
-console.log(req.body);
+    newQuiz.mark= req.body[0].correctMarks;
+    newQuiz.name= req.body[0].name;
+    newQuiz.answer = req.body[0].answer;
     newQuiz.save((err,data)=> {
         if (err) {
             console.log(err)
